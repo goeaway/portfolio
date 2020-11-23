@@ -65,7 +65,6 @@ const Container = styled.div`
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     margin-bottom: 2rem;
     background: #232834;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     
@@ -140,4 +139,12 @@ const FeaturedImage = styled.div`
     padding: 1rem;
     padding-top: 2rem;
     min-height: 100px;
+
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+
+    @media(min-width:${p => p.theme.breakpoints.sm}px) {
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 4px;
+    }
 `
