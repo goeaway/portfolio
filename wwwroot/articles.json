@@ -1,0 +1,65 @@
+{
+    "articles": [
+        {
+            "id": "article_1",
+            "title": "Jeepee.io",
+            "desc": "Stream from and control an RC vehicle with a .net core web api on a raspberry pi.",
+            "type": 0,
+            "featuredImage": "/assets/articleimages/jeepee_1.jpeg",
+            "techs": [
+                { 
+                    "name": "React",
+                    "icon": "react"
+                },
+                { 
+                    "name": "Docker",
+                    "icon": "docker"
+                },
+                { 
+                    "name": "Raspberry Pi",
+                    "icon": "rpi"
+                },
+                { 
+                    "name": "C#",
+                    "icon": "csharp"
+                }
+            ],
+            "featured": true
+        },
+        {
+            "id": "article_4",
+            "title": "sharethe.shop",
+            "desc": "An online shopping list real time collaboration tool.",
+            "type": 0,
+            "featuredImage": "/assets/articleimages/sts_1.jpg",
+            "techs": [
+                
+                { 
+                    "name": "C#",
+                    "icon": "csharp"
+                },
+                { 
+                    "name": "AWS",
+                    "icon": "aws"
+                },
+                { 
+                    "name": "html",
+                    "icon": "html"
+                }
+            ],
+            "featured": true
+        },
+        {
+            "id": "article_2",
+            "title": "article 2",
+            "type": 1,
+            "featured": false
+        },
+        {
+            "id": "article_3",
+            "title": "article 3",
+            "type": 0,
+            "featured": false
+        }
+    ]
+}
