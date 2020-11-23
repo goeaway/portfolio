@@ -1,4 +1,4 @@
-import { faSadCry } from "@fortawesome/free-solid-svg-icons";
+import { faSadCry, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useArticlesService from "@src/hooks/use-articles-service";
 import useTheme from "@src/hooks/use-theme";
@@ -47,6 +47,12 @@ const ArticlesPage : React.FC<ArticlesPageProps> = ({type}) => {
                     <EmptyState>
                         <FontAwesomeIcon size="9x" icon={faSadCry} color={theme.background.three} />
                         <p>No {type === ArticleType.project ? "projects" : type === ArticleType.tutorial ? "tutorials" : ""} found!</p>
+                    </EmptyState>
+                )}
+                {!ready && (
+                    <EmptyState>
+                        <FontAwesomeIcon size="9x" className="fa-spin" icon={faSpinner} color={theme.background.three} />
+                        <p>Loading...</p>
                     </EmptyState>
                 )}
             </ContentContainer>

@@ -32,12 +32,14 @@ const Container = styled.div`
     overflow: hidden;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 `
-
+    
 const TextContainer = styled.div`
     display: flex;
     flex-direction: column;
+    margin-top: 5rem;
+    
     align-items: flex-end;
 `
 

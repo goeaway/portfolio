@@ -29,7 +29,7 @@
         {
             "id": "article_4",
             "title": "sharethe.shop",
-            "desc": "An online shopping list real time collaboration tool.",
+            "desc": "An online shopping list for real time collaboration tool.",
             "type": 0,
             "featuredImage": "/assets/articleimages/sts_1.jpg",
             "techs": [

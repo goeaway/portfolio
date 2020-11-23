@@ -33,7 +33,7 @@ const FeaturedArticle : React.FC<FeaturedArticleProps> = ({article}) => {
                     </>
                 )}
             </FeaturedImage>
-            <ContainerLower>
+            <ContentMain>
                 <TitleLine>
                     <Title>
                         {article.title}
@@ -53,7 +53,7 @@ const FeaturedArticle : React.FC<FeaturedArticleProps> = ({article}) => {
                 </TitleLine>
                 <Description>{article.desc}</Description>
                 <RectangleButton onClick={readMoreClickHandler} color={theme.fontDark.one} outline backgroundColor="white">Read More</RectangleButton>
-            </ContainerLower>
+            </ContentMain>
         </Container>
     );
 }
@@ -74,7 +74,7 @@ const Container = styled.div`
     }
 `
     
-const ContainerLower = styled.div`
+const ContentMain = styled.div`
     padding: 1.5rem 2rem;
     padding-bottom: 2rem;
 `

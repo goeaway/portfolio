@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useArticlesService from "@src/hooks/use-articles-service";
 import { Article } from "@src/types";
 import React, { useEffect, useRef, useState } from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import CircularIconButton from "../styled/circular-icon-button";
 import RectangleButton from "../styled/rectangle-button";
@@ -10,7 +10,6 @@ import useTheme from "@src/hooks/use-theme";
 import { useHistory } from "react-router";
 import FeaturedArticle from "../featured-article";
 import ContentContainer from "../styled/content-container";
-import Tooltip from "../tooltip";
 import useElementInViewport from "@src/hooks/use-element-in-viewport";
 import { motion } from "framer-motion";
 
