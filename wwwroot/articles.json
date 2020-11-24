@@ -24,7 +24,8 @@
                     "icon": "csharp"
                 }
             ],
-            "featured": true
+            "featured": true,
+            "content": "/assets/articlecontent/rpi-setup.md"
         },
         {
             "id": "article_4",

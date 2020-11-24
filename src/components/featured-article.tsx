@@ -7,6 +7,7 @@ import { useHistory } from "react-router";
 import styled from "styled-components";
 import RectangleButton from "./styled/rectangle-button";
 import TechIcon from "./tech-icon";
+import TechList from "./tech-list";
 import Tooltip from "./tooltip";
 
 export interface FeaturedArticleProps {
@@ -38,18 +39,7 @@ const FeaturedArticle : React.FC<FeaturedArticleProps> = ({article}) => {
                     <Title>
                         {article.title}
                     </Title>
-                    <TechList>
-                        <TechListTop>
-                            {article.techs?.slice(0, 3).map(t => (
-                                <TechIcon key={t.name} name={t.name} icon={t.icon} />
-                                ))}
-                        </TechListTop>
-                        {!!extra && (
-                            <Tooltip text={article.techs?.slice(3).map(t => t.name).join("<br />")} html >
-                                <ExtraTechs>+ {extra} more</ExtraTechs>
-                            </Tooltip>
-                        )}
-                    </TechList>
+                        <TechList techs={article.techs} maxDisplay={3} flexEnd />
                 </TitleLine>
                 <Description>{article.desc}</Description>
                 <RectangleButton onClick={readMoreClickHandler} color={theme.fontDark.one} outline backgroundColor="white">Read More</RectangleButton>
@@ -100,27 +90,6 @@ const Title = styled.span`
 
 const Description = styled.p`
     margin: 1rem 0 2rem 0;
-`
-
-const TechList = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 6px; 
-    
-    @media(min-width:${p => p.theme.breakpoints.md}px) {
-        align-items: flex-end;
-    }
-`
-
-const TechListTop = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 16px;
-`
-
-const ExtraTechs = styled.span`
-    font-size: 12px;
-    line-height: 18px;
 `
 
 interface FeaturedImageProps {
