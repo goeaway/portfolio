@@ -4,10 +4,10 @@ import useArticlesService from "@src/hooks/use-articles-service";
 import useTheme from "@src/hooks/use-theme";
 import { Article } from "@src/types";
 import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { useHistory, useParams } from "react-router";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import TechList from "../tech-list";
 
 interface ParamTypes {
@@ -22,9 +22,9 @@ const ArticlePage = () => {
     const [contentReady, setContentReady] = useState(false);
     const [content, setContent] = useState<string>("");
     const theme = useTheme();
+    const titleRef = useRef<HTMLDivElement>(null);
+    const [fixedHeader, setFixedHeader] = useState(false);
 
-    // create mount effect that queries the context for articles to find the specified one,
-    // if not found redirect to the not found page (or articles page?)
     useEffect(() => {
         if(id) {
             get(id).then(a => {
@@ -48,6 +48,27 @@ const ArticlePage = () => {
         }
     }, [id]);
 
+    useLayoutEffect(() => {
+        const resizeHandler = () => {
+            // if part of article header is behind navbar or off screen
+            // we should change the state of the article header so it becomes a fixed 
+            // element
+            if(titleRef.current) {
+                const { scrollTop } = document.documentElement;
+
+                setFixedHeader(scrollTop >= 60);
+            }
+        }
+
+        resizeHandler();
+
+        window.addEventListener("scroll", resizeHandler);
+
+        return () => {
+            window.removeEventListener("scroll", resizeHandler);
+        }
+    }, [titleRef]);
+
     return (
         <Container 
             initial={{y: "50%"}}
@@ -60,14 +81,14 @@ const ArticlePage = () => {
                 )}
                 {article && (
                     <>
-                        <ArticleHeader>
-                            <ArticleTitle>
+                        <ArticleHeader fixedMode={fixedHeader}>
+                            <ArticleTitle ref={titleRef} fixedMode={fixedHeader}>
                                 {article.title}
                             </ArticleTitle>
-                            <ArticleDesc>
+                            <ArticleDesc fixedMode={fixedHeader}>
                                 {article.desc}
                             </ArticleDesc>
-                            <TechList techs={article.techs} maxDisplay={10} />
+                            <TechList techs={article.techs} maxDisplay={fixedHeader ? 3 : 10} />
                         </ArticleHeader>
                         <ArticleBody>
                             {!contentReady && (
@@ -113,7 +134,7 @@ const Container = styled(motion.div)`
     display: flex;
     justify-content: center;
     padding: 2rem;
-    padding-top: 8rem;
+    padding-top: 6rem;
     transition: padding 300ms ease;
 
     @media(min-width:${p => p.theme.breakpoints.sm}px) {
@@ -142,7 +163,12 @@ const ArticleContainer = styled.div`
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     border-radius: 4px;
     width: 100%;
+    position: relative;
 `
+
+interface FixedModeProps {
+    fixedMode: boolean;
+}
 
 const ArticleHeader = styled.div`
     padding: 2rem;
@@ -150,16 +176,36 @@ const ArticleHeader = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    background: ${p => p.theme.background.two};
+    width: 100%;
+
+    ${(p: FixedModeProps) => p.fixedMode && css`
+        padding: 1rem 2rem;
+        position: sticky;
+        top: 61px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        
+        @media(min-width:${p => p.theme.breakpoints.xs}px) {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;  
+        }
+    `}
 `
 
 const ArticleTitle = styled.span`
-    font-size: 70px;
-    line-height: 90px;
+    font-size: ${(p: FixedModeProps) => p.fixedMode ? "40px" : "70px"};
+    line-height: ${(p: FixedModeProps) => p.fixedMode ? "55px" : "90px"};;
     font-weight: 700;
+    transition: font-size 300ms ease, line-height 300ms ease;
 `
 
 const ArticleDesc = styled.span`
     font-size: 14px;
+
+    ${(p: FixedModeProps) => p.fixedMode && css`
+        display: none;
+    `}
 `
 
 const ArticleBody = styled.div`

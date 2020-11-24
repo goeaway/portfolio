@@ -58,4 +58,5 @@ const Content = styled(motion.div)`
     left: 50%;
     transform: translateX(-50%);
     white-space: nowrap;
+    z-index: 1000;
 `

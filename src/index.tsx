@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "styled-components";
 import App from "./components/app";
 import { Theme } from "./types";
+import "styled-components";
 
 const root = document.getElementById("app-root");
 
