@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { faAws, faReact, faJs, faDocker, faRaspberryPi, faCss3, faHtml5, faWindows } from "@fortawesome/free-brands-svg-icons";
+import { faAws, faReact, faJs, faDocker, faRaspberryPi, faCss3, faHtml5, faWindows, faLinux } from "@fortawesome/free-brands-svg-icons";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Tooltip from "./tooltip";
@@ -33,9 +33,11 @@ const TechIcon : React.FC<TechIconProps> = ({name, icon}) => {
         case "csharp":
             component = faWindows;
             break;
-        case "js": 
-            component = faJs;
+        case "windows":
+            component = faWindows;
             break;
+        case "linux":
+            component = faLinux;
     }
 
     const useSvg = icon === "typescript";

@@ -25,8 +25,27 @@ const iamaChoices = [
     "Docker Enthusiast."
 ];
 
+const scrollTo = (element: HTMLElement, to: number, duration: number) => {
+    if (duration <= 0) {
+        return;
+    }
+
+    const difference = to - element.scrollTop;
+    const perTick = difference / duration * 10;
+
+    setTimeout(function() {
+        element.scrollTop = element.scrollTop + perTick;
+        if (element.scrollTop === to) {
+            return;
+        }
+        
+        scrollTo(element, to, duration - 10);
+    }, 10);
+}
+
 const HomePage = () => {
     const theme = useTheme();
+    const [submitted, setSubmitted] = useState(false);
     const [featured, setFeatured] = useState<Array<Article>>([]);
     const { query } = useArticlesService();
     const [iamaIndex, setIamaIndex] = useState(0);
@@ -43,6 +62,9 @@ const HomePage = () => {
 
     const featuredRef = useRef<HTMLDivElement>(null);
     const featuredInViewport = useElementInViewport(featuredRef, true);
+
+    const contactRef = useRef<HTMLDivElement>(null);
+    const contactInViewport = useElementInViewport(contactRef, true);
 
     useEffect(() => {
         query({
@@ -108,30 +130,17 @@ const HomePage = () => {
     const readMoreClickHandler = () => {
         // target - 60 (for navbar height)
         const target = aboutRef.current.offsetTop - 60;
-
-        const scrollTo = (element: HTMLElement, to: number, duration: number) => {
-            if (duration <= 0) {
-                return;
-            }
-
-            const difference = to - element.scrollTop;
-            const perTick = difference / duration * 10;
-        
-            setTimeout(function() {
-                element.scrollTop = element.scrollTop + perTick;
-                if (element.scrollTop === to) {
-                    return;
-                }
-                
-                scrollTo(element, to, duration - 10);
-            }, 10);
-        }
-
         scrollTo(document.documentElement, target, 300);
     }
 
     const contactMeClickHandler = () => {
-        push("/contact");
+        const target = contactRef.current.offsetTop - 60;
+        scrollTo(document.documentElement, target, 300);
+    }
+
+    const contactFormSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        setSubmitted(true);
     }
 
     return (
@@ -177,7 +186,7 @@ const HomePage = () => {
                     </p>
                 </motion.div>
             </ContentContainer>   
-                <ContentContainer ref={featuredRef}>
+            <ContentContainer ref={featuredRef}>
                 <motion.div
                     initial={{x: "-50%"}}
                     animate={featuredInViewport ? {x: "0"} : {x: "-50%"}}
@@ -188,6 +197,32 @@ const HomePage = () => {
                         </Highlighted>
                     </FeaturedTitle>
                     {featured.map(f => <FeaturedArticle key={f.id} article={f} />)}
+                </motion.div>
+            </ContentContainer>
+            <ContentContainer background={theme.background.two} ref={contactRef}>
+                <motion.div
+                    initial={{x: "50%"}}
+                    animate={contactInViewport ? {x: "0"} : {x: "50%"}}
+                >
+                    <FeaturedTitle>
+                        <Highlighted>
+                            Contact Me
+                        </Highlighted>
+                    </FeaturedTitle>
+                    {!submitted && (
+                        <Form onSubmit={contactFormSubmit}>
+                            <p>If you'd like to get in touch about anything please use the form below. Thank you.</p>
+                            <Input placeholder="Name" />
+                            <Input placeholder="Email" />
+                            <Textarea placeholder="Message..." rows={5} />
+                            <RectangleButton type="submit" color={theme.fontDark.one} backgroundColor="white">Submit</RectangleButton>
+                        </Form>
+                    )}
+                    {submitted && (
+                        <>
+                            <p>Thank you for getting in touch!</p>
+                        </>
+                    )}
                 </motion.div>
             </ContentContainer>
         </>
@@ -256,4 +291,40 @@ const ButtonRow = styled.div`
 
 const Highlighted = styled.span`
     font-weight: 700;
+`
+
+const Form = styled.form`
+    max-width: 100%;
+    transition: margin 300ms ease;
+`
+
+const Input = styled.input`
+    padding: .75rem;
+    font-size: 16px;
+    border-radius: 2px;
+    border: none;
+    width: 100%;
+    outline: none;
+    background: ${p => p.theme.background.three};
+    color: ${p => p.theme.fontLight.one};
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    margin-bottom: 1rem;
+`
+
+const Textarea = styled.textarea`
+    padding: .75rem;
+    font-size: 16px;
+    border-radius: 2px;
+    border: none;
+    width: 100%;
+    outline: none;
+    background: ${p => p.theme.background.three};
+    color: ${p => p.theme.fontLight.one};
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    font-family: "Oxygen", sans-serif;
+    min-width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    resize: vertical;
+    min-height: 43px;
 `

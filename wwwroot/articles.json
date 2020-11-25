@@ -153,7 +153,17 @@
             "type": 1,
             "featured": false,
             "featuredImage": "/assets/articleimages/rpi.png",
-            "content": "/assets/articlecontent/rpi-setup.md"
+            "content": "/assets/articlecontent/rpi-setup.md",
+            "techs": [
+                { 
+                    "name": "Raspberry Pi",
+                    "icon": "rpi"
+                },
+                { 
+                    "name": "Linux",
+                    "icon": "linux"
+                }
+            ]
         },
         {
             "id": "docker",
@@ -162,7 +172,17 @@
             "type": 1,
             "featured": false,
             "featuredImage": "/assets/articleimages/docker.png",
-            "content": "/assets/articlecontent/docker.md"
+            "content": "/assets/articlecontent/docker.md",
+            "techs": [
+                { 
+                    "name": "Docker",
+                    "icon": "docker"
+                },
+                { 
+                    "name": "Linux",
+                    "icon": "linux"
+                }
+            ]
         },
         {
             "id": "uv4l",
@@ -171,7 +191,17 @@
             "type": 1,
             "featured": false,
             "featuredImage": "/assets/articleimages/uv4l.jpg",
-            "content": "/assets/articlecontent/uv4l.md"
+            "content": "/assets/articlecontent/uv4l.md",
+            "techs": [
+                { 
+                    "name": "Raspberry Pi",
+                    "icon": "rpi"
+                },
+                { 
+                    "name": "Linux",
+                    "icon": "linux"
+                }
+            ]
         }
     ]
 }

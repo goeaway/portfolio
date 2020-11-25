@@ -47,7 +47,6 @@ const Menu = () => {
                 <MenuLink a={(loc.pathname === "/").toString()} onClick={itemClickHandler} to={loc.pathname === "/" ? "#" : "/"}>Home</MenuLink>
                 <MenuLink a={(loc.pathname === "/projects").toString()} onClick={itemClickHandler} to={loc.pathname === "/projects" ? "#" : "/projects"}>Projects</MenuLink>
                 <MenuLink a={(loc.pathname === "/tutorials").toString()} onClick={itemClickHandler} to={loc.pathname === "/tutorials" ? "#" : "/tutorials"}>Tutorials</MenuLink>
-                <MenuLink a={(loc.pathname === "/contact").toString()} onClick={itemClickHandler} to={loc.pathname === "/contact" ? "#" : "/contact"}>Contact</MenuLink>
             </MenuContainer>
             <MenuExpand onClick={menuExpandClickHandler}><FontAwesomeIcon icon={faBars} size="lg" /></MenuExpand>
         </Container>

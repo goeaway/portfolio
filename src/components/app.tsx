@@ -6,7 +6,6 @@ import HomePage from "./pages/home-page";
 import NotFoundPage from "./pages/not-found-page";
 import ArticlePage from "./pages/article-page";
 import ArticlesPage from "./pages/articles-page";
-import ContactPage from "./pages/contact-page";
 import ArticlesServiceContext, { Service } from "@src/contexts/articles-service-context";
 import Menu from "./menu";
 import { ArticleType } from "@src/types";
@@ -25,7 +24,6 @@ const App = () => {
                                 <AnimatedRoute path="/article/:id" component={ArticlePage} />
                                 <AnimatedRoute path="/projects" component={() => <ArticlesPage type={ArticleType.project} />} />
                                 <AnimatedRoute path="/tutorials" component={() => <ArticlesPage type={ArticleType.tutorial} />} />
-                                <AnimatedRoute path="/contact" component={ContactPage} />
                                 <AnimatedRoute exact path="/" component={HomePage} />
                                 <AnimatedRoute component={NotFoundPage} />
                             </AnimatedSwitch>
