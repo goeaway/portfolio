@@ -25,7 +25,7 @@
                 }
             ],
             "featured": true,
-            "content": "/assets/articlecontent/rpi-setup.md",
+            "content": "/assets/articlecontent/jeepee.md",
             "githubLink": "https://github.com/goeaway/jeepee.io"
         },
         {
@@ -44,7 +44,8 @@
                     "icon": "aws"
                 }
             ],
-            "featured": true
+            "featured": true,
+            "content": "/assets/articlecontent/bump.md"
         },
         {
             "id": "sharetheshop",
@@ -54,6 +55,7 @@
             "featuredImage": "/assets/articleimages/sts_1.jpg",
             "liveLink": "https://sharethe.shop/",
             "githubLink": "https://github.com/goeaway/shared-list",
+            "content": "/assets/articlecontent/sharetheshop.md",
             "techs": [
                 
                 { 
@@ -78,6 +80,7 @@
             "type": 0,
             "featured": false,
             "featuredImage": "/assets/articleimages/rick.gif",
+            "content": "/assets/articlecontent/rickroller.md",
             "techs": [
                 { 
                     "name": "React",
@@ -102,6 +105,7 @@
             "githubLink": "https://github.com/goeaway/color-palette",
             "liveLink": "https://www.palettehonk.com/",
             "featuredImage": "/assets/articleimages/ph.png",
+            "content": "/assets/articlecontent/palettehonk.md",
             "techs": [
                 {
                     "name": "React",
@@ -126,6 +130,7 @@
             "featured": false,
             "githubLink": "https://github.com/goeaway/credit-card-react",
             "featuredImage": "/assets/articleimages/rcc_1.gif",
+            "content": "/assets/articlecontent/creditcard.md",
             "techs": [
                 { 
                     "name": "React",
