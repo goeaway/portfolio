@@ -84,7 +84,7 @@ interface MenuContainerProps {
 
 const MenuContainer = styled.div`
     transition: height 300ms ease;
-    height: ${(p: MenuContainerProps) => p.open ? "172px": "0"};
+    height: ${(p: MenuContainerProps) => p.open ? "130px": "0"};
     display: flex;
     flex-direction: column;
     justify-content: flex-end;

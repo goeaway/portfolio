@@ -1,8 +1,5 @@
 ### what is this 
-- show tank image
-- show hardware
-- show board schem
-- show controller
+- a way to control a remote control vehicle using a custom system
 
 ### why did i start this project
 - was interested in remote vehicles such as fpv drones and wanted to do my own

@@ -104,26 +104,28 @@ const ArticlePage = () => {
                             </ArticleHeaderLeft>
                             <ArticleHeaderRight>
                                 <HideFixedModeTechList fixedMode={fixedHeader} >
-                                <TechList 
-                                    techs={article.techs} 
-                                    maxDisplay={fixedHeader ? 3 : 10} />
-                            </HideFixedModeTechList>
-                                {article.liveLink && (
-                                    <RectangleButton
-                                        color={theme.fontDark.one} 
-                                        backgroundColor="white"
-                                        onClick={viewLiveHandler}
-                                    >
-                                        View Live Site
-                                    </RectangleButton>
-                                )}
-                                {article.githubLink && (
-                                    <RectangleButton 
-                                        color={theme.fontDark.one} 
-                                        outline
-                                        onClick={viewGithubHandler}
-                                        backgroundColor="white">View on Github</RectangleButton>
-                                )}
+                                    <TechList 
+                                        techs={article.techs} 
+                                        maxDisplay={fixedHeader ? 3 : 10} />
+                                </HideFixedModeTechList>
+                                <ButtonContainer>
+                                    {article.liveLink && (
+                                        <RectangleButton
+                                            color={theme.fontDark.one} 
+                                            backgroundColor="white"
+                                            onClick={viewLiveHandler}
+                                        >
+                                            View Live Site
+                                        </RectangleButton>
+                                    )}
+                                    {article.githubLink && (
+                                        <RectangleButton 
+                                            color={theme.fontDark.one} 
+                                            outline
+                                            onClick={viewGithubHandler}
+                                            backgroundColor="white">View on Github</RectangleButton>
+                                    )}
+                                </ButtonContainer>
                             </ArticleHeaderRight>
                         </ArticleHeader>
                         <ArticleBody>
@@ -263,6 +265,8 @@ const ArticleTitle = styled.span`
     line-height: ${(p: FixedModeProps) => p.fixedMode ? "55px" : "90px"};;
     font-weight: 700;
     transition: font-size 300ms ease, line-height 300ms ease;
+    padding-right: 2rem;
+    word-wrap: anywhere;
 `
 
 const ArticleDesc = styled.span`
@@ -339,4 +343,9 @@ const HideFixedModeTechList = styled.div`
     ${(p: FixedModeProps) => p.fixedMode && css`
         display: none !important;
     `}
+`
+
+const ButtonContainer = styled.div`
+    display: flex;
+    gap: 1rem;
 `

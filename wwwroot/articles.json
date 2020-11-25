@@ -50,7 +50,7 @@
         {
             "id": "sharetheshop",
             "title": "sharethe.shop",
-            "desc": "An online shopping list for real time collaboration tool.",
+            "desc": "A real time shopping list collaboration tool.",
             "type": 0,
             "featuredImage": "/assets/articleimages/sts_1.jpg",
             "liveLink": "https://sharethe.shop/",
