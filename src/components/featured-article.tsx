@@ -60,7 +60,7 @@ const Container = styled.div`
     
     @media(min-width:${p => p.theme.breakpoints.sm}px) {
         display: grid;
-        grid-template-columns: 20% auto;
+        grid-template-columns: 25% auto;
     }
 `
     

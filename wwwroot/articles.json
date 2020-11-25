@@ -1,7 +1,7 @@
 {
     "articles": [
         {
-            "id": "article_1",
+            "id": "jeepee",
             "title": "Jeepee.io",
             "desc": "Stream from and control an RC vehicle with a .net core web api on a raspberry pi.",
             "type": 0,
@@ -25,14 +25,35 @@
                 }
             ],
             "featured": true,
-            "content": "/assets/articlecontent/rpi-setup.md"
+            "content": "/assets/articlecontent/rpi-setup.md",
+            "githubLink": "https://github.com/goeaway/jeepee.io"
         },
         {
-            "id": "article_4",
+            "id": "bump",
+            "title": "Bump",
+            "desc": "A UWP application for quickly sharing things with yourself accross multiple devices.",
+            "type": 0,
+            "techs": [
+                
+                { 
+                    "name": "C#",
+                    "icon": "csharp"
+                },
+                { 
+                    "name": "AWS",
+                    "icon": "aws"
+                }
+            ],
+            "featured": true
+        },
+        {
+            "id": "sharetheshop",
             "title": "sharethe.shop",
             "desc": "An online shopping list for real time collaboration tool.",
             "type": 0,
             "featuredImage": "/assets/articleimages/sts_1.jpg",
+            "liveLink": "https://sharethe.shop/",
+            "githubLink": "https://github.com/goeaway/shared-list",
             "techs": [
                 
                 { 
@@ -51,16 +72,101 @@
             "featured": true
         },
         {
-            "id": "article_2",
-            "title": "article 2",
-            "type": 1,
-            "featured": false
+            "id": "rick-roller",
+            "title": "Rick Roll Blocker",
+            "desc": "Give up on Rick Astley even if he won't on you with this Firefox extension.",
+            "type": 0,
+            "featured": false,
+            "featuredImage": "/assets/articleimages/rick.gif",
+            "techs": [
+                { 
+                    "name": "React",
+                    "icon": "react"
+                },
+                { 
+                    "name": "HTML",
+                    "icon": "html"
+                },
+                { 
+                    "name": "CSS",
+                    "icon": "css"
+                }
+            ]
         },
         {
-            "id": "article_3",
-            "title": "article 3",
+            "id": "palettehonk",
+            "title": "Palette Honk",
+            "desc": "Create color schemes with this online drag and drop palette creation tool.",
             "type": 0,
-            "featured": false
+            "featured": false,
+            "githubLink": "https://github.com/goeaway/color-palette",
+            "liveLink": "https://www.palettehonk.com/",
+            "featuredImage": "/assets/articleimages/ph.png",
+            "techs": [
+                {
+                    "name": "React",
+                    "icon": "react"
+                },
+                {
+                    "name": "HTML",
+                    "icon": "html"
+                },
+                {
+                    "name": "CSS",
+                    "icon": "css"
+                }
+            ]
+
+        },
+        {
+            "id": "credit-card",
+            "title": "Credit Card Form",
+            "desc": "A really simple credit card form control written in React!",
+            "type": 0,
+            "featured": false,
+            "githubLink": "https://github.com/goeaway/credit-card-react",
+            "featuredImage": "/assets/articleimages/rcc_1.gif",
+            "techs": [
+                { 
+                    "name": "React",
+                    "icon": "react"
+                },
+                { 
+                    "name": "HTML",
+                    "icon": "html"
+                },
+                { 
+                    "name": "CSS",
+                    "icon": "css"
+                }
+            ]
+        },
+        {
+            "id": "rpi-setup",
+            "title": "Raspberry Pi Setup",
+            "desc": "Check out this tutorial to get up and running really quickly with a Raspberry Pi.",
+            "type": 1,
+            "featured": false,
+            "featuredImage": "/assets/articleimages/rpi.png",
+            "content": "/assets/articlecontent/rpi-setup.md"
+        },
+        {
+            "id": "docker",
+            "title": "Docker Setup",
+            "desc": "Set up a linux box with docker in a few simple steps.",
+            "type": 1,
+            "featured": false,
+            "featuredImage": "/assets/articleimages/docker.png",
+            "content": "/assets/articlecontent/docker.md"
+        },
+        {
+            "id": "uv4l",
+            "title": "UV4L Setup",
+            "desc": "Set up a linux box with uv4l to stream a camera feed.",
+            "type": 1,
+            "featured": false,
+            "featuredImage": "/assets/articleimages/uv4l.jpg",
+            "content": "/assets/articlecontent/uv4l.md"
         }
     ]
 }

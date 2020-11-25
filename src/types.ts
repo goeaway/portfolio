@@ -8,6 +8,8 @@ export interface Article {
     type: ArticleType;
     featured: boolean;
     featuredImage?: string;
+    githubLink?: string;
+    liveLink?: string;
 }
 
 export interface Technology {

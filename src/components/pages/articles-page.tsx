@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useArticlesService from "@src/hooks/use-articles-service";
 import useTheme from "@src/hooks/use-theme";
 import { Article, ArticleType } from "@src/types";
+import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import FeaturedArticle from "../featured-article";
@@ -42,7 +43,14 @@ const ArticlesPage : React.FC<ArticlesPageProps> = ({type}) => {
                 <SearchContainer>
                     <Search placeholder="Search by technology, e.g. React..." type="text" value={term} autoFocus onChange={searchHandler} />
                 </SearchContainer>
-                {articles.map(p=> <FeaturedArticle key={p.id} article={p} />)}
+                {articles.map(p=> (
+                    <motion.div 
+                        initial={{x: "-50%"}}
+                        animate={{x: "0"}}
+                    >
+                        <FeaturedArticle key={p.id} article={p} />
+                    </motion.div>
+                ))}
                 {ready && articles.length === 0 && (
                     <EmptyState>
                         <FontAwesomeIcon size="9x" icon={faSadCry} color={theme.background.three} />

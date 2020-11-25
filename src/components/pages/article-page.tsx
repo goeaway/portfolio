@@ -1,4 +1,5 @@
-import { faSadCry, faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { faGit, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faExternalLinkSquareAlt, faSadCry, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useArticlesService from "@src/hooks/use-articles-service";
 import useTheme from "@src/hooks/use-theme";
@@ -8,6 +9,7 @@ import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { useHistory, useParams } from "react-router";
 import styled, { css } from "styled-components";
+import RectangleButton from "../styled/rectangle-button";
 import TechList from "../tech-list";
 
 interface ParamTypes {
@@ -69,6 +71,16 @@ const ArticlePage = () => {
         }
     }, [titleRef]);
 
+    const viewLiveHandler = () => {
+        const tab = window.open(article.liveLink, "_blank");
+        tab.focus();
+    }
+
+    const viewGithubHandler = () => {
+        const tab = window.open(article.githubLink, "_blank");
+        tab.focus();
+    }
+
     return (
         <Container 
             initial={{y: "50%"}}
@@ -82,13 +94,37 @@ const ArticlePage = () => {
                 {article && (
                     <>
                         <ArticleHeader fixedMode={fixedHeader}>
-                            <ArticleTitle ref={titleRef} fixedMode={fixedHeader}>
-                                {article.title}
-                            </ArticleTitle>
-                            <ArticleDesc fixedMode={fixedHeader}>
-                                {article.desc}
-                            </ArticleDesc>
-                            <TechList techs={article.techs} maxDisplay={fixedHeader ? 3 : 10} />
+                            <ArticleHeaderLeft>
+                                <ArticleTitle ref={titleRef} fixedMode={fixedHeader}>
+                                    {article.title}
+                                </ArticleTitle>
+                                <ArticleDesc fixedMode={fixedHeader}>
+                                    {article.desc}
+                                </ArticleDesc>
+                            </ArticleHeaderLeft>
+                            <ArticleHeaderRight>
+                                <HideFixedModeTechList fixedMode={fixedHeader} >
+                                <TechList 
+                                    techs={article.techs} 
+                                    maxDisplay={fixedHeader ? 3 : 10} />
+                            </HideFixedModeTechList>
+                                {article.liveLink && (
+                                    <RectangleButton
+                                        color={theme.fontDark.one} 
+                                        backgroundColor="white"
+                                        onClick={viewLiveHandler}
+                                    >
+                                        View Live Site
+                                    </RectangleButton>
+                                )}
+                                {article.githubLink && (
+                                    <RectangleButton 
+                                        color={theme.fontDark.one} 
+                                        outline
+                                        onClick={viewGithubHandler}
+                                        backgroundColor="white">View on Github</RectangleButton>
+                                )}
+                            </ArticleHeaderRight>
                         </ArticleHeader>
                         <ArticleBody>
                             {!contentReady && (
@@ -164,6 +200,7 @@ const ArticleContainer = styled.div`
     border-radius: 4px;
     width: 100%;
     position: relative;
+    margin-bottom: 100px;
 `
 
 interface FixedModeProps {
@@ -171,26 +208,54 @@ interface FixedModeProps {
 }
 
 const ArticleHeader = styled.div`
-    padding: 2rem;
+    padding: 1rem 2rem 2rem 2rem;
     border-bottom: 2px solid ${p => p.theme.background.one};
     display: flex;
     flex-direction: column;
-    gap: 1rem;
     background: ${p => p.theme.background.two};
     width: 100%;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    gap: 1rem;
+    transition: height 300ms ease;
+
+    @media(min-width:${p => p.theme.breakpoints.sm}px) {
+        gap:0;
+        flex-direction: row;
+        justify-content: space-between;
+    }
 
     ${(p: FixedModeProps) => p.fixedMode && css`
         padding: 1rem 2rem;
         position: sticky;
-        top: 61px;
+        top: 51px;
         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-        
-        @media(min-width:${p => p.theme.breakpoints.xs}px) {
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;  
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+
+        @media(min-width:${p => p.theme.breakpoints.sm}px) {
+            top: 60px;
         }
     `}
+`
+
+const ArticleHeaderLeft = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+`
+
+const ArticleHeaderRight = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+
+    @media(min-width:${p => p.theme.breakpoints.sm}px) {
+        justify-content: center;
+        align-items: flex-end;
+    }
+
 `
 
 const ArticleTitle = styled.span`
@@ -202,6 +267,7 @@ const ArticleTitle = styled.span`
 
 const ArticleDesc = styled.span`
     font-size: 14px;
+    padding-right: 2rem;
 
     ${(p: FixedModeProps) => p.fixedMode && css`
         display: none;
@@ -267,4 +333,10 @@ const FeaturedImage = styled.img`
 
 const EmptyContentText = styled.p`
     color: ${p => p.theme.background.four};
+`
+
+const HideFixedModeTechList = styled.div`
+    ${(p: FixedModeProps) => p.fixedMode && css`
+        display: none !important;
+    `}
 `

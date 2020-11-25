@@ -1,5 +1,4 @@
-﻿## Raspberry Pi Setup
-Follow this to set up a **Raspberry Pi** for remote use over **SSH** and **WIFI** with **public and private keys**. This tutorial assumes you're just messing around with Raspberry Pi and therefore **security might be little lax**, just be aware.
+﻿Follow this to set up a **Raspberry Pi** for remote use over **SSH** and **WIFI** with **public and private keys**. This tutorial assumes you're just messing around with Raspberry Pi and therefore **security might be little lax**, just be aware.
 
 ### Hardware
 * Raspberry pi 3 or newer
