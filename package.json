@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "local": "webpack serve",
-    "dist": "webpack --env prod & @powershell Copy-Item -Path \"./wwwroot/*\" -Destination \"./build\" -Recurse -Force"
+    "dist": "webpack --env prod",
+    "copy": "@powershell Copy-Item -Path \"./wwwroot/*\" -Destination \"./build\" -Recurse -Force"
   },
   "author": "",
   "license": "ISC",
