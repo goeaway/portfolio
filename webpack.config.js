@@ -12,9 +12,9 @@ module.exports = (env) => {
             path: __dirname + '/build',
             publicPath: '/output'
         },
-        plugins: [
-            new analyser()
-        ],
+        // plugins: [
+        //     new analyser()
+        // ],
         resolve: {
             extensions: ['.ts', '.tsx', '.js'],
             alias: {
