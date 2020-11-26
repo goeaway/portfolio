@@ -48,10 +48,6 @@ const AppContainer = styled.div`
     background: ${p => p.theme.background.one};
     color: ${p => p.theme.fontLight.one};
     position: relative;
-    
-    p {
-        font-size: 16px;
-    }
 `
 
 const ContentContainer = styled.div`
