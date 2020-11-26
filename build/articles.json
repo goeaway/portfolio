@@ -1,0 +1,207 @@
+{
+    "articles": [
+        {
+            "id": "jeepee",
+            "title": "Jeepee.io",
+            "desc": "Stream from and control an RC vehicle with a .net core web api on a raspberry pi.",
+            "type": 0,
+            "featuredImage": "/assets/articleimages/jeepee_1.jpeg",
+            "techs": [
+                { 
+                    "name": "React",
+                    "icon": "react"
+                },
+                { 
+                    "name": "Docker",
+                    "icon": "docker"
+                },
+                { 
+                    "name": "Raspberry Pi",
+                    "icon": "rpi"
+                },
+                { 
+                    "name": "C#",
+                    "icon": "csharp"
+                }
+            ],
+            "featured": true,
+            "content": "/assets/articlecontent/jeepee.md",
+            "githubLink": "https://github.com/goeaway/jeepee.io"
+        },
+        {
+            "id": "bump",
+            "title": "Bump",
+            "desc": "A UWP application for quickly sharing things with yourself accross multiple devices.",
+            "type": 0,
+            "techs": [
+                
+                { 
+                    "name": "C#",
+                    "icon": "csharp"
+                },
+                { 
+                    "name": "AWS",
+                    "icon": "aws"
+                }
+            ],
+            "featured": true,
+            "content": "/assets/articlecontent/bump.md"
+        },
+        {
+            "id": "sharetheshop",
+            "title": "sharethe.shop",
+            "desc": "A real time shopping list collaboration tool.",
+            "type": 0,
+            "featuredImage": "/assets/articleimages/sts_1.jpg",
+            "liveLink": "https://sharethe.shop/",
+            "githubLink": "https://github.com/goeaway/shared-list",
+            "content": "/assets/articlecontent/sharetheshop.md",
+            "techs": [
+                
+                { 
+                    "name": "C#",
+                    "icon": "csharp"
+                },
+                { 
+                    "name": "AWS",
+                    "icon": "aws"
+                },
+                { 
+                    "name": "html",
+                    "icon": "html"
+                }
+            ],
+            "featured": true
+        },
+        {
+            "id": "rick-roller",
+            "title": "Rick Roll Blocker",
+            "desc": "Give up on Rick Astley even if he won't on you with this Firefox extension.",
+            "type": 0,
+            "featured": false,
+            "featuredImage": "/assets/articleimages/rick.gif",
+            "content": "/assets/articlecontent/rickroller.md",
+            "techs": [
+                { 
+                    "name": "React",
+                    "icon": "react"
+                },
+                { 
+                    "name": "HTML",
+                    "icon": "html"
+                },
+                { 
+                    "name": "CSS",
+                    "icon": "css"
+                }
+            ]
+        },
+        {
+            "id": "palettehonk",
+            "title": "Palette Honk",
+            "desc": "Create color schemes with this online drag and drop palette creation tool.",
+            "type": 0,
+            "featured": false,
+            "githubLink": "https://github.com/goeaway/color-palette",
+            "liveLink": "https://www.palettehonk.com/",
+            "featuredImage": "/assets/articleimages/ph.png",
+            "content": "/assets/articlecontent/palettehonk.md",
+            "techs": [
+                {
+                    "name": "React",
+                    "icon": "react"
+                },
+                {
+                    "name": "HTML",
+                    "icon": "html"
+                },
+                {
+                    "name": "CSS",
+                    "icon": "css"
+                }
+            ]
+
+        },
+        {
+            "id": "credit-card",
+            "title": "Credit Card Form",
+            "desc": "A really simple credit card form control written in React!",
+            "type": 0,
+            "featured": false,
+            "githubLink": "https://github.com/goeaway/credit-card-react",
+            "featuredImage": "/assets/articleimages/rcc_1.gif",
+            "content": "/assets/articlecontent/creditcard.md",
+            "techs": [
+                { 
+                    "name": "React",
+                    "icon": "react"
+                },
+                { 
+                    "name": "HTML",
+                    "icon": "html"
+                },
+                { 
+                    "name": "CSS",
+                    "icon": "css"
+                }
+            ]
+        },
+        {
+            "id": "rpi-setup",
+            "title": "Raspberry Pi Setup",
+            "desc": "Check out this tutorial to get up and running really quickly with a Raspberry Pi.",
+            "type": 1,
+            "featured": false,
+            "featuredImage": "/assets/articleimages/rpi.png",
+            "content": "/assets/articlecontent/rpi-setup.md",
+            "techs": [
+                { 
+                    "name": "Raspberry Pi",
+                    "icon": "rpi"
+                },
+                { 
+                    "name": "Linux",
+                    "icon": "linux"
+                }
+            ]
+        },
+        {
+            "id": "docker",
+            "title": "Docker Setup",
+            "desc": "Set up a linux box with docker in a few simple steps.",
+            "type": 1,
+            "featured": false,
+            "featuredImage": "/assets/articleimages/docker.png",
+            "content": "/assets/articlecontent/docker.md",
+            "techs": [
+                { 
+                    "name": "Docker",
+                    "icon": "docker"
+                },
+                { 
+                    "name": "Linux",
+                    "icon": "linux"
+                }
+            ]
+        },
+        {
+            "id": "uv4l",
+            "title": "UV4L Setup",
+            "desc": "Set up a linux box with uv4l to stream a camera feed.",
+            "type": 1,
+            "featured": false,
+            "featuredImage": "/assets/articleimages/uv4l.jpg",
+            "content": "/assets/articlecontent/uv4l.md",
+            "techs": [
+                { 
+                    "name": "Raspberry Pi",
+                    "icon": "rpi"
+                },
+                { 
+                    "name": "Linux",
+                    "icon": "linux"
+                }
+            ]
+        }
+    ]
+}
