@@ -6,8 +6,10 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Theme } from "@src/types";
 import useOnClickOutside from "@src/hooks/use-on-click-outside";
+import useMenuSpeed from "@src/hooks/use-menu-speed";
 
 const Menu = () => {
+    const { speed } = useMenuSpeed();
     const [menuOpen, setMenuOpen] = useState(false);
     const [hasBackground, setHasBackground] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
@@ -42,7 +44,7 @@ const Menu = () => {
     }
 
     return (
-        <Container useBackground={hasBackground} open={menuOpen} ref={containerRef}>
+        <Container useBackground={hasBackground} open={menuOpen} ref={containerRef} speed={speed}>
             <MenuContainer open={menuOpen}>
                 <MenuLink a={(loc.pathname === "/").toString()} onClick={itemClickHandler} to={loc.pathname === "/" ? "#" : "/"}>Home</MenuLink>
                 <MenuLink a={(loc.pathname === "/projects").toString()} onClick={itemClickHandler} to={loc.pathname === "/projects" ? "#" : "/projects"}>Projects</MenuLink>
@@ -58,6 +60,7 @@ export default Menu;
 interface ContainerProps {
     open: boolean;
     useBackground: boolean;
+    speed: number;
 }
 
 const Container = styled.div`
@@ -66,7 +69,7 @@ const Container = styled.div`
     display: flex;
     width: 100%;
     justify-content: space-between;
-    transition: background 300ms ease, box-shadow 300ms ease;
+    transition: background ${(p: ContainerProps) => p.speed}ms ease, box-shadow ${(p: ContainerProps) => p.speed}ms ease;
     background: ${(p: ContainerProps & { theme: Theme }) => p.open || p.useBackground ? p.theme.background.one : "transparent"};
     box-shadow: ${(p: ContainerProps) => p.open || p.useBackground ? "0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)" : "none"};
     padding: .5rem 1rem;

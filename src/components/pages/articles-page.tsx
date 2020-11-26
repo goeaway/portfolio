@@ -1,6 +1,7 @@
 import { faSadCry, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useArticlesService from "@src/hooks/use-articles-service";
+import useMenuSpeed from "@src/hooks/use-menu-speed";
 import useTheme from "@src/hooks/use-theme";
 import { Article, ArticleType } from "@src/types";
 import { AnimatePresence, motion } from "framer-motion";

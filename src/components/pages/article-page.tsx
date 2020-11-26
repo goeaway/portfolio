@@ -2,6 +2,7 @@ import { faGit, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faExternalLinkSquareAlt, faSadCry, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useArticlesService from "@src/hooks/use-articles-service";
+import useMenuSpeed from "@src/hooks/use-menu-speed";
 import useTheme from "@src/hooks/use-theme";
 import { Article } from "@src/types";
 import { motion } from "framer-motion";
@@ -17,6 +18,7 @@ interface ParamTypes {
 }
 
 const ArticlePage = () => {
+    const { setSpeed } = useMenuSpeed();
     const { get } = useArticlesService();
     const { id } = useParams<ParamTypes>();
     const { push } = useHistory();
@@ -26,6 +28,15 @@ const ArticlePage = () => {
     const theme = useTheme();
     const titleRef = useRef<HTMLDivElement>(null);
     const [fixedHeader, setFixedHeader] = useState(false);
+
+    useEffect(() => {
+        // set speed to nothing so we don't accidently see featured image!!
+        setSpeed(0);
+
+        return () => {
+            setSpeed(300);
+        }
+    }, []);
 
     useEffect(() => {
         if(id) {

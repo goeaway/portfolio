@@ -7,11 +7,11 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import CircularIconButton from "../styled/circular-icon-button";
 import RectangleButton from "../styled/rectangle-button";
 import useTheme from "@src/hooks/use-theme";
-import { useHistory } from "react-router";
 import FeaturedArticle from "../featured-article";
 import ContentContainer from "../styled/content-container";
 import useElementInViewport from "@src/hooks/use-element-in-viewport";
 import { motion } from "framer-motion";
+import useMenuSpeed from "@src/hooks/use-menu-speed";
 
 const iamaChoices = [
     "React Developer.",
@@ -52,7 +52,6 @@ const HomePage = () => {
     const [iama, setIama] = useState(iamaChoices[0]);
     // false to remove, true to type
     const [typeState, setTypeState] = useState(false);
-    const { push } = useHistory();
 
     const heroRef = useRef<HTMLDivElement>(null);
     const heroInViewport = useElementInViewport(heroRef, true);
@@ -148,7 +147,7 @@ const HomePage = () => {
             <Hero ref={heroRef}>
                 <motion.div
                     initial={{y: "-100%"}}
-                    animate={aboutInViewport ? {y: "0"} : {y: "-100%"}}
+                    animate={heroInViewport ? {y: "0"} : {y: "-100%"}}
                 >
                     <MainTag>Hi, I'm <Highlighted>Joe Thompson.</Highlighted></MainTag>
                     <SecondaryTag>I'm a <Highlighted>{iama}</Highlighted></SecondaryTag>

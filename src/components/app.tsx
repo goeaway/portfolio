@@ -1,5 +1,5 @@
 import Dark from "@src/themes/dark";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import HomePage from "./pages/home-page";
@@ -11,23 +11,28 @@ import Menu from "./menu";
 import { ArticleType } from "@src/types";
 import AnimatedSwitch from "./routes/animated-switch";
 import AnimatedRoute from "./routes/animated-route";
+import MenuSpeedContext from "@src/contexts/menu-speed-context";
 
 const App = () => {
+    const [menuSpeed, setMenuSpeed] = useState(300);
+
     return (
         <ThemeProvider theme={Dark}>
             <AppContainer>
                 <ArticlesServiceContext.Provider value={Service}>
                     <Router>
-                        <Menu />
-                        <ContentContainer>
-                            <AnimatedSwitch>
-                                <AnimatedRoute path="/article/:id" component={ArticlePage} />
-                                <AnimatedRoute path="/projects" component={() => <ArticlesPage type={ArticleType.project} />} />
-                                <AnimatedRoute path="/tutorials" component={() => <ArticlesPage type={ArticleType.tutorial} />} />
-                                <AnimatedRoute exact path="/" component={HomePage} />
-                                <AnimatedRoute component={NotFoundPage} />
-                            </AnimatedSwitch>
-                        </ContentContainer>
+                        <MenuSpeedContext.Provider value={{speed: menuSpeed, setSpeed: setMenuSpeed}}>
+                            <Menu />
+                            <ContentContainer>
+                                <AnimatedSwitch>
+                                    <AnimatedRoute path="/article/:id" component={ArticlePage} />
+                                    <AnimatedRoute path="/projects" component={() => <ArticlesPage type={ArticleType.project} />} />
+                                    <AnimatedRoute path="/tutorials" component={() => <ArticlesPage type={ArticleType.tutorial} />} />
+                                    <AnimatedRoute exact path="/" component={HomePage} />
+                                    <AnimatedRoute component={NotFoundPage} />
+                                </AnimatedSwitch>
+                            </ContentContainer>
+                        </MenuSpeedContext.Provider>
                     </Router>
                 </ArticlesServiceContext.Provider>
             </AppContainer>

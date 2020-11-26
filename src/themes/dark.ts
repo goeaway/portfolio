@@ -14,7 +14,7 @@ const Dark : Theme = {
     fontDark: {
         one: "#1F2430"
     },
-    heroSrc: "/assets/heroes/cosmic-blur.jpg",
+    heroSrc: "/assets/heroes/astro-blurred.jpg",
     breakpoints: {
         xs: 530,
         sm: 768,
