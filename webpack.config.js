@@ -4,8 +4,8 @@ const analyser = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = (env) => {
     return {
-        mode: env.mode === "production" ? "production" : "development",
-        devtool: env.mode === "production" ? undefined : 'inline-source-map',
+        mode: env.prod ? "production" : "development",
+        devtool: env.prod ? undefined : 'inline-source-map',
         entry: './src/index.tsx',
         output: {
             filename: 'bundle.js',
