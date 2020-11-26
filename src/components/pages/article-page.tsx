@@ -213,7 +213,7 @@ const ArticleContainer = styled.div`
     border-radius: 4px;
     width: 100%;
     position: relative;
-    margin-bottom: 100px;
+    margin-bottom: 140px;
 `
 
 interface FixedModeProps {
