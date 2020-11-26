@@ -10,7 +10,7 @@ module.exports = (env) => {
         output: {
             filename: 'bundle.js',
             path: __dirname + '/build',
-            publicPath: '/output'
+            publicPath: '/'
         },
         // plugins: [
         //     new analyser()
@@ -37,7 +37,7 @@ module.exports = (env) => {
             host: "localhost.app.com",
             port: 30,
             contentBase: './wwwroot',
-            publicPath: '/output',
+            publicPath: '/',
             hot: true,
             headers: {
               'Access-Control-Allow-Origin': '*',
