@@ -126,7 +126,7 @@ const ArticlePage = () => {
                                             backgroundColor="white"
                                             onClick={viewLiveHandler}
                                         >
-                                            View Live Site
+                                            <HiddenXsSm>View&nbsp;</HiddenXsSm>Live<HiddenXsSm>&nbsp;Site</HiddenXsSm>
                                         </RectangleButton>
                                     )}
                                     {article.githubLink && (
@@ -134,7 +134,9 @@ const ArticlePage = () => {
                                             color={theme.fontDark.one} 
                                             outline
                                             onClick={viewGithubHandler}
-                                            backgroundColor="white">View on Github</RectangleButton>
+                                            backgroundColor="white">
+                                                <HiddenXsSm>View on&nbsp;</HiddenXsSm>Github
+                                        </RectangleButton>
                                     )}
                                 </ButtonContainer>
                             </ArticleHeaderRight>
@@ -268,16 +270,20 @@ const ArticleHeaderRight = styled.div`
         justify-content: center;
         align-items: flex-end;
     }
-
 `
 
 const ArticleTitle = styled.span`
-    font-size: ${(p: FixedModeProps) => p.fixedMode ? "40px" : "70px"};
-    line-height: ${(p: FixedModeProps) => p.fixedMode ? "55px" : "90px"};;
+    font-size: 40px;
+    line-height: 55px;
     font-weight: 700;
     transition: font-size 300ms ease, line-height 300ms ease;
     padding-right: 2rem;
     word-wrap: anywhere;
+
+    @media(min-width:${p => p.theme.breakpoints.sm}px) {
+        font-size: ${(p: FixedModeProps) => p.fixedMode ? "40px" : "70px"};
+        line-height: ${(p: FixedModeProps) => p.fixedMode ? "55px" : "90px"};;
+    }
 `
 
 const ArticleDesc = styled.span`
@@ -359,4 +365,12 @@ const HideFixedModeTechList = styled.div`
 const ButtonContainer = styled.div`
     display: flex;
     gap: 1rem;
+`
+
+const HiddenXsSm = styled.span`
+    display: none;
+
+    @media(min-width:${p => p.theme.breakpoints.md}px) {
+        display: inline-block;
+    }
 `
