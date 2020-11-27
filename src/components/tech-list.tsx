@@ -51,7 +51,7 @@ const Container = styled.div`
 const TechListTop = styled.div`
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 1rem;
 `
 
 const ExtraTechs = styled.span`
