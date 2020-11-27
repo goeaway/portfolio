@@ -68,8 +68,8 @@ const ArticlePage = () => {
             // element
             if(titleRef.current) {
                 const { scrollTop } = document.documentElement;
-
-                setFixedHeader(scrollTop >= 60);
+                // provide a slight buffer so it doesn't constantly switch between them if scrolled just to right amount
+                setFixedHeader(fixed => scrollTop >= (fixed ? 50 : 60));
             }
         }
 

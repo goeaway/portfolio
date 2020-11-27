@@ -11,7 +11,8 @@ import FeaturedArticle from "../featured-article";
 import ContentContainer from "../styled/content-container";
 import useElementInViewport from "@src/hooks/use-element-in-viewport";
 import { motion } from "framer-motion";
-import useMenuSpeed from "@src/hooks/use-menu-speed";
+import IconButton from "../styled/icon-button";
+import { useHistory } from "react-router";
 
 const iamaChoices = [
     "React Developer.",
@@ -44,8 +45,8 @@ const scrollTo = (element: HTMLElement, to: number, duration: number) => {
 }
 
 const HomePage = () => {
+    const { push } = useHistory();
     const theme = useTheme();
-    const [submitted, setSubmitted] = useState(false);
     const [featured, setFeatured] = useState<Array<Article>>([]);
     const { query } = useArticlesService();
     const [iamaIndex, setIamaIndex] = useState(0);
@@ -137,11 +138,6 @@ const HomePage = () => {
         scrollTo(document.documentElement, target, 300);
     }
 
-    const contactFormSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        setSubmitted(true);
-    }
-
     return (
         <>
             <Hero ref={heroRef}>
@@ -160,7 +156,7 @@ const HomePage = () => {
                     </ButtonRow>
                     <ButtonRow>
                         <RectangleButton onClick={readMoreClickHandler} color={theme.fontDark.one} backgroundColor="white">Read More</RectangleButton>
-                        <RectangleButton onClick={contactMeClickHandler} outline backgroundColor="white" color={theme.fontDark.one}>Contact Me</RectangleButton>
+                        <RectangleButton onClick={contactMeClickHandler} outline backgroundColor="white" color={theme.fontDark.one}>Get in Touch</RectangleButton>
                     </ButtonRow>
                 </motion.div>
             </Hero>     
@@ -194,6 +190,7 @@ const HomePage = () => {
                         <Highlighted>
                             Featured Projects
                         </Highlighted>
+                        <RectangleButton onClick={() => push("/projects")} outline backgroundColor="white" color={theme.fontDark.one}>View All</RectangleButton>
                     </FeaturedTitle>
                     {featured.map(f => <FeaturedArticle key={f.id} article={f} />)}
                 </motion.div>
@@ -205,23 +202,19 @@ const HomePage = () => {
                 >
                     <FeaturedTitle>
                         <Highlighted>
-                            Contact Me
+                            Get in Touch
                         </Highlighted>
                     </FeaturedTitle>
-                    {!submitted && (
-                        <Form onSubmit={contactFormSubmit}>
-                            <p>If you'd like to get in touch about anything please use the form below. Thank you.</p>
-                            <Input placeholder="Name" />
-                            <Input placeholder="Email" />
-                            <Textarea placeholder="Message..." rows={5} />
-                            <RectangleButton type="submit" color={theme.fontDark.one} backgroundColor="white">Submit</RectangleButton>
-                        </Form>
-                    )}
-                    {submitted && (
-                        <>
-                            <p>Thank you for getting in touch!</p>
-                        </>
-                    )}
+                    <EmailLinkContainer>
+                        Think we could work together? Please get in touch through the links below.
+                    </EmailLinkContainer>
+                    <EmailLinkContainer>
+                        <EmailLink href="mailto:joseph.thompson.murdoch@gmail.com">joseph.thompson.murdoch@gmail.com</EmailLink>
+                    </EmailLinkContainer>
+                    <ButtonRow>
+                        <IconButton onClick={gitHubClickHandler}><FontAwesomeIcon icon={faGithub} size="2x" /></IconButton>
+                        <IconButton onClick={linkedinClickHandler}><FontAwesomeIcon icon={faLinkedin} size="2x" /></IconButton>    
+                    </ButtonRow>
                 </motion.div>
             </ContentContainer>
         </>
@@ -239,8 +232,10 @@ const MainTag = styled.span`
 const FeaturedTitle = styled.span`
     font-size: 32px;
     line-height: 56px;
-    display: block;
-    margin-bottom: 1rem;
+    display: flex;
+    margin-bottom: 2rem;
+    justify-content: space-between;
+    align-items: center;
 `
 
 const SecondaryTag = styled.span`
@@ -292,38 +287,17 @@ const Highlighted = styled.span`
     font-weight: 700;
 `
 
-const Form = styled.form`
-    max-width: 100%;
-    transition: margin 300ms ease;
+const EmailLinkContainer = styled.div`
+    margin-bottom: 2rem;
 `
 
-const Input = styled.input`
-    padding: .75rem;
-    font-size: 16px;
-    border-radius: 2px;
-    border: none;
-    width: 100%;
-    outline: none;
-    background: ${p => p.theme.background.three};
+const EmailLink = styled.a`
     color: ${p => p.theme.fontLight.one};
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    margin-bottom: 1rem;
-`
+    transition: color 300ms ease;
+    text-decoration: none;
+    font-size: 20px;
 
-const Textarea = styled.textarea`
-    padding: .75rem;
-    font-size: 16px;
-    border-radius: 2px;
-    border: none;
-    width: 100%;
-    outline: none;
-    background: ${p => p.theme.background.three};
-    color: ${p => p.theme.fontLight.one};
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    font-family: "Oxygen", sans-serif;
-    min-width: 100%;
-    max-width: 100%;
-    margin-bottom: 1rem;
-    resize: vertical;
-    min-height: 43px;
+    &:hover {
+        color: ${p => p.theme.fontLight.two};
+    }
 `

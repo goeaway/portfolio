@@ -53,7 +53,7 @@ export default FeaturedArticle;
 const Container = styled.div`
     border-radius: 4px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     background: #232834;
     display: flex;
     flex-direction: column;
@@ -65,8 +65,7 @@ const Container = styled.div`
 `
     
 const ContentMain = styled.div`
-    padding: 1.5rem 2rem;
-    padding-bottom: 2rem;
+    padding: 2rem;
 `
 
 const TitleLine = styled.div`
@@ -83,13 +82,13 @@ const TitleLine = styled.div`
 `
 
 const Title = styled.span`
-    font-size: 30px;
-    line-height: 38px;
+    font-size: 40px;
+    line-height: 60px;
     font-weight: 700;
 `
 
 const Description = styled.p`
-    margin: 1rem 0 2rem 0;
+    margin: 2rem 0 3rem 0;
 `
 
 interface FeaturedImageProps {

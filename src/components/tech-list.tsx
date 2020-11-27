@@ -57,4 +57,5 @@ const TechListTop = styled.div`
 const ExtraTechs = styled.span`
     font-size: 12px;
     line-height: 18px;
+    cursor: pointer;
 `

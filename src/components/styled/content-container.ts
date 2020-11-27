@@ -21,15 +21,15 @@ const ContentContainer = styled.div`
     }
 
     @media(min-width:${p => p.theme.breakpoints.md}px) {
-        padding: 2rem 14rem;
+        padding: 4rem 14rem;
     }
 
     @media(min-width:${p => p.theme.breakpoints.lg}px) {
-        padding: 2rem 18rem;
+        padding: 4rem 18rem;
     }
 
     @media(min-width:${p => p.theme.breakpoints.xl}px) {
-        padding: 2rem 28rem;
+        padding: 4rem 28rem;
     }
 `
 
