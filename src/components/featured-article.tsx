@@ -22,8 +22,6 @@ const FeaturedArticle : React.FC<FeaturedArticleProps> = ({article}) => {
         push(`/article/${article.id}`);
     }
 
-    const extra = article.techs?.slice(3).length;
-
     return (
         <Container>
             <FeaturedImage src={article.featuredImage}>
@@ -42,7 +40,7 @@ const FeaturedArticle : React.FC<FeaturedArticleProps> = ({article}) => {
                         <TechList techs={article.techs} maxDisplay={3} flexEnd />
                 </TitleLine>
                 <Description>{article.desc}</Description>
-                <RectangleButton onClick={readMoreClickHandler} color={theme.fontDark.one} outline backgroundColor="white">Read More</RectangleButton>
+                <RectangleButton name="read more about this article" onClick={readMoreClickHandler} color={theme.fontDark.one} outline backgroundColor="white">Read More</RectangleButton>
             </ContentMain>
         </Container>
     );

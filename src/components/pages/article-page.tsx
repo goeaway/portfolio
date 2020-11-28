@@ -125,6 +125,7 @@ const ArticlePage = () => {
                                             color={theme.fontDark.one} 
                                             backgroundColor="white"
                                             onClick={viewLiveHandler}
+                                            name="view live version"
                                         >
                                             <HiddenXsSm>View&nbsp;</HiddenXsSm>Live<HiddenXsSm>&nbsp;Site</HiddenXsSm>
                                         </RectangleButton>
@@ -134,7 +135,9 @@ const ArticlePage = () => {
                                             color={theme.fontDark.one} 
                                             outline
                                             onClick={viewGithubHandler}
-                                            backgroundColor="white">
+                                            backgroundColor="white"
+                                            name="view github repo"
+                                        >
                                                 <HiddenXsSm>View on&nbsp;</HiddenXsSm>Github
                                         </RectangleButton>
                                     )}

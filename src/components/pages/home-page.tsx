@@ -151,12 +151,12 @@ const HomePage = () => {
                         Welcome to my portfolio! Take a look at some of the personal projects I've worked on.
                     </TertiaryTag>
                     <ButtonRow>
-                        <CircularIconButton onClick={gitHubClickHandler}><FontAwesomeIcon icon={faGithub} size="lg" /></CircularIconButton>
-                        <CircularIconButton onClick={linkedinClickHandler}><FontAwesomeIcon icon={faLinkedin} size="lg" /></CircularIconButton>    
+                        <CircularIconButton name="view my github" onClick={gitHubClickHandler}><FontAwesomeIcon icon={faGithub} size="lg" /></CircularIconButton>
+                        <CircularIconButton name="view my linkedin"  onClick={linkedinClickHandler}><FontAwesomeIcon icon={faLinkedin} size="lg" /></CircularIconButton>    
                     </ButtonRow>
                     <ButtonRow>
-                        <RectangleButton onClick={readMoreClickHandler} color={theme.fontDark.one} backgroundColor="white">Read More</RectangleButton>
-                        <RectangleButton onClick={contactMeClickHandler} outline backgroundColor="white" color={theme.fontDark.one}>Get in Touch</RectangleButton>
+                        <RectangleButton name="read more" onClick={readMoreClickHandler} color={theme.fontDark.one} backgroundColor="white">Read More</RectangleButton>
+                        <RectangleButton name="get in touch" onClick={contactMeClickHandler} outline backgroundColor="white" color={theme.fontDark.one}>Get in Touch</RectangleButton>
                     </ButtonRow>
                 </motion.div>
             </Hero>     
@@ -190,7 +190,7 @@ const HomePage = () => {
                         <Highlighted>
                             Featured Projects
                         </Highlighted>
-                        <RectangleButton onClick={() => push("/projects")} outline backgroundColor="white" color={theme.fontDark.one}>View All</RectangleButton>
+                        <RectangleButton name="view all projects" onClick={() => push("/projects")} outline backgroundColor="white" color={theme.fontDark.one}>View All</RectangleButton>
                     </FeaturedTitle>
                     {featured.map(f => <FeaturedArticle key={f.id} article={f} />)}
                 </motion.div>
@@ -212,8 +212,8 @@ const HomePage = () => {
                         <EmailLink href="mailto:joseph.thompson.murdoch@gmail.com">joseph.thompson.murdoch@gmail.com</EmailLink>
                     </EmailLinkContainer>
                     <ButtonRow>
-                        <IconButton onClick={gitHubClickHandler}><FontAwesomeIcon icon={faGithub} size="2x" /></IconButton>
-                        <IconButton onClick={linkedinClickHandler}><FontAwesomeIcon icon={faLinkedin} size="2x" /></IconButton>    
+                        <IconButton name="get in touch via github" onClick={gitHubClickHandler}><FontAwesomeIcon icon={faGithub} size="2x" /></IconButton>
+                        <IconButton name="get in touch via linkedin" onClick={linkedinClickHandler}><FontAwesomeIcon icon={faLinkedin} size="2x" /></IconButton>    
                     </ButtonRow>
                 </motion.div>
             </ContentContainer>

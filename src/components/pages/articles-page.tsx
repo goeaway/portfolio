@@ -42,7 +42,7 @@ const ArticlesPage : React.FC<ArticlesPageProps> = ({type}) => {
             <PadTop amount={4} />
             <ContentContainer>
                 <SearchContainer>
-                    <Search placeholder="Search by technology, e.g. React..." type="text" value={term} autoFocus onChange={searchHandler} />
+                    <Search name="search" placeholder="Search by technology, e.g. React..." type="text" value={term} autoFocus onChange={searchHandler} />
                 </SearchContainer>
                 {articles.map(p=> (
                     <motion.div 
