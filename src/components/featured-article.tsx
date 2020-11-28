@@ -40,7 +40,7 @@ const FeaturedArticle : React.FC<FeaturedArticleProps> = ({article}) => {
                         <TechList techs={article.techs} maxDisplay={3} flexEnd />
                 </TitleLine>
                 <Description>{article.desc}</Description>
-                <RectangleButton name="read more about this article" onClick={readMoreClickHandler} color={theme.fontDark.one} outline backgroundColor="white">Read More</RectangleButton>
+                <RectangleButton onClick={readMoreClickHandler} color={theme.fontDark.one} outline backgroundColor="white">Read More</RectangleButton>
             </ContentMain>
         </Container>
     );
