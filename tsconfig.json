@@ -16,5 +16,6 @@
             "@testing/*": ["testing/*"]
         }
     },
+    "include": ["src", "src/custom.d.ts"],
    "exclude": ["node_modules"]
 }

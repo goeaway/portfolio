@@ -10,7 +10,7 @@ const getAll = () : Promise<Array<Article>> => new Promise(async(res, rej) => {
 
     if(response.ok) {
         const data = await response.json() as { articles: Array<Article>};
-        res(data.articles);
+        res(data.articles.filter(a => a.enabled));
     } else {
         rej(response.statusText);
     }

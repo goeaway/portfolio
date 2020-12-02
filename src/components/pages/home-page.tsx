@@ -171,13 +171,13 @@ const HomePage = () => {
                         </Highlighted>
                     </FeaturedTitle>
                     <p>
-                        Hi I'm Joe, I'm a 24 year old Full Stack Developer based in London. I'm currently working for Spotler UK, a marketing automation company. 
+                        I'm a 24 year old Full Stack Developer based in London. I'm currently working for Spotler UK, a marketing automation company. I like gaming, powerlifting, and rock climbing and I'm always on the hunt for a new software project to mess around with.
                     </p>
                     <p>
-                        I spend a lot of my time working with .Net, TypeScript and React but have dabbled in some really cool technology like Docker, SignalR and Raspberry Pis when I get the time.
+                        I've been in the industry for 4 years and have worked with a range of exceptional people from designers to directors. I've learnt a huge amount in my time and love making use of my skills to build exciting new software!
                     </p>
                     <p>
-                        Take a look around at some of the personal projects I've worked on or feel free to get in touch if you'd like to talk about programming!
+                        Check out some of my personal projects here, or get in touch if you think we could work together!
                     </p>
                 </motion.div>
             </ContentContainer>   

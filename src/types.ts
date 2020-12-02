@@ -10,6 +10,7 @@ export interface Article {
     featuredImage?: string;
     githubLink?: string;
     liveLink?: string;
+    enabled?: boolean;
 }
 
 export interface Technology {
