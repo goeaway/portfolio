@@ -5,6 +5,10 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const NotFoundPage = () => {
+    useEffect(() => {
+        document.title = "Joe Thompson-Murdoch | Not Found";
+    }, []);
+
     return (
         <Container>
             <TextContainer>

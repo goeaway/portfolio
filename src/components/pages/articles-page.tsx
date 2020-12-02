@@ -23,6 +23,10 @@ const ArticlesPage : React.FC<ArticlesPageProps> = ({type}) => {
     const theme = useTheme();
 
     useEffect(() => {
+        document.title = `Joe Thompson-Murdoch | ${(type === ArticleType.project ? "Projects" : "Tutorials")}`;
+    }, []);
+
+    useEffect(() => {
         query({
             term,
             type

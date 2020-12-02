@@ -71,6 +71,8 @@ const HomePage = () => {
             featured: true
         })
         .then(articles => setFeatured(articles));
+
+        document.title = "Joe Thompson-Murdoch";
     }, []);
 
     useEffect(() => {

@@ -32,11 +32,17 @@ const ArticlePage = () => {
     useEffect(() => {
         // set speed to nothing so we don't accidently see featured image!!
         setSpeed(0);
-
+        
         return () => {
             setSpeed(300);
         }
     }, []);
+    
+    useEffect(() => {
+        if(article) {
+            document.title = `Joe Thompson-Murdoch | ${(article.title)}`;
+        }
+    }, [article]);
 
     useEffect(() => {
         if(id) {
