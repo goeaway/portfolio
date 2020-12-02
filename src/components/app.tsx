@@ -12,6 +12,7 @@ import { ArticleType } from "@src/types";
 import AnimatedSwitch from "./routes/animated-switch";
 import AnimatedRoute from "./routes/animated-route";
 import MenuSpeedContext from "@src/contexts/menu-speed-context";
+import GoogleAnalyticsUpdater from "./google-analytics-updater";
 
 const App = () => {
     const [menuSpeed, setMenuSpeed] = useState(300);
@@ -21,6 +22,7 @@ const App = () => {
             <AppContainer>
                 <ArticlesServiceContext.Provider value={Service}>
                     <Router>
+                        <GoogleAnalyticsUpdater />
                         <MenuSpeedContext.Provider value={{speed: menuSpeed, setSpeed: setMenuSpeed}}>
                             <Menu />
                             <ContentContainer>

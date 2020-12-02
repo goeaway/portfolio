@@ -12,3 +12,9 @@ ReactDOM.render(<App />, root);
 declare module "styled-components" {
     export interface DefaultTheme extends Theme {}
 }
+
+declare global {
+    interface Window {
+        ga: any;
+    }
+}
