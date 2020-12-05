@@ -10,7 +10,7 @@ import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { useHistory, useParams } from "react-router";
 import styled, { css } from "styled-components";
-import RectangleButton from "../styled/rectangle-button";
+import RectangleLink from "../styled/rectangle-link";
 import TechList from "../tech-list";
 
 interface ParamTypes {
@@ -88,16 +88,6 @@ const ArticlePage = () => {
         }
     }, [titleRef]);
 
-    const viewLiveHandler = () => {
-        const tab = window.open(article.liveLink, "_blank");
-        tab.focus();
-    }
-
-    const viewGithubHandler = () => {
-        const tab = window.open(article.githubLink, "_blank");
-        tab.focus();
-    }
-
     return (
         <Container 
             initial={{y: "50%"}}
@@ -127,23 +117,23 @@ const ArticlePage = () => {
                                 </HideFixedModeTechList>
                                 <ButtonContainer>
                                     {article.liveLink && (
-                                        <RectangleButton
+                                        <RectangleLink
                                             color={theme.fontDark.one} 
                                             backgroundColor="white"
-                                            onClick={viewLiveHandler}
+                                            href={article.liveLink}
                                         >
                                             <HiddenXsSm>View&nbsp;</HiddenXsSm>Live<HiddenXsSm>&nbsp;Site</HiddenXsSm>
-                                        </RectangleButton>
+                                        </RectangleLink>
                                     )}
                                     {article.githubLink && (
-                                        <RectangleButton 
+                                        <RectangleLink 
                                             color={theme.fontDark.one} 
                                             outline
-                                            onClick={viewGithubHandler}
+                                            href={article.githubLink}
                                             backgroundColor="white"
                                         >
                                                 <HiddenXsSm>View on&nbsp;</HiddenXsSm>Github
-                                        </RectangleButton>
+                                        </RectangleLink>
                                     )}
                                 </ButtonContainer>
                             </ArticleHeaderRight>

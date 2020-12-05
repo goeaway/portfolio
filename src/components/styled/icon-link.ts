@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const IconButton = styled.button`
+const IconLink = styled.a`
     color: ${p => p.theme.fontLight.one};
     transition: color 300ms ease;
     background: none;
@@ -13,4 +13,4 @@ const IconButton = styled.button`
     }
 `
 
-export default IconButton;
+export default IconLink;

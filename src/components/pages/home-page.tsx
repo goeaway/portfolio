@@ -4,14 +4,14 @@ import { Article } from "@src/types";
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import CircularIconButton from "../styled/circular-icon-button";
+import CircularIconLink from "../styled/circular-icon-link";
 import RectangleButton from "../styled/rectangle-button";
 import useTheme from "@src/hooks/use-theme";
 import FeaturedArticle from "../featured-article";
 import ContentContainer from "../styled/content-container";
 import useElementInViewport from "@src/hooks/use-element-in-viewport";
 import { motion } from "framer-motion";
-import IconButton from "../styled/icon-button";
+import IconLink from "../styled/icon-link";
 import { useHistory } from "react-router";
 
 const iamaChoices = [
@@ -119,16 +119,6 @@ const HomePage = () => {
         }
     }, [typeState]);
 
-    const gitHubClickHandler = () => {
-        var tab = window.open("https://github.com/goeaway", "_blank");
-        tab.focus();
-    }
-
-    const linkedinClickHandler = () => {
-        var tab = window.open("https://www.linkedin.com/in/joe-thompson-murdoch-41b4b2158/", "_blank");
-        tab.focus();
-    }
-
     const readMoreClickHandler = () => {
         // target - 60 (for navbar height)
         const target = aboutRef.current.offsetTop - 60;
@@ -153,8 +143,18 @@ const HomePage = () => {
                         Welcome to my portfolio! Take a look at some of the personal projects I've worked on.
                     </TertiaryTag>
                     <ButtonRow>
-                        <CircularIconButton aria-label="view my github" onClick={gitHubClickHandler}><FontAwesomeIcon icon={faGithub} size="lg" /></CircularIconButton>
-                        <CircularIconButton aria-label="view my linkedin"  onClick={linkedinClickHandler}><FontAwesomeIcon icon={faLinkedin} size="lg" /></CircularIconButton>    
+                        <CircularIconLink 
+                            aria-label="view my github" 
+                            href="https://github.com/goeaway"
+                        >
+                            <FontAwesomeIcon icon={faGithub} size="lg" />
+                        </CircularIconLink>
+                        <CircularIconLink 
+                            aria-label="view my linkedin" 
+                            href="https://www.linkedin.com/in/joe-thompson-murdoch-41b4b2158/"
+                        >
+                            <FontAwesomeIcon icon={faLinkedin} size="lg" />
+                        </CircularIconLink>    
                     </ButtonRow>
                     <ButtonRow>
                         <RectangleButton onClick={readMoreClickHandler} color={theme.fontDark.one} backgroundColor="white">Read More</RectangleButton>
@@ -214,8 +214,8 @@ const HomePage = () => {
                         <EmailLink href="mailto:joseph.thompson.murdoch@gmail.com">joseph.thompson.murdoch@gmail.com</EmailLink>
                     </EmailLinkContainer>
                     <ButtonRow>
-                        <IconButton aria-label="Get in touch via github" onClick={gitHubClickHandler}><FontAwesomeIcon icon={faGithub} size="2x" /></IconButton>
-                        <IconButton aria-label="Get in touch via linkedin" onClick={linkedinClickHandler}><FontAwesomeIcon icon={faLinkedin} size="2x" /></IconButton>    
+                        <IconLink aria-label="Get in touch via github" href="https://github.com/goeaway"><FontAwesomeIcon icon={faGithub} size="2x" /></IconLink>
+                        <IconLink aria-label="Get in touch via linkedin" href="https://www.linkedin.com/in/joe-thompson-murdoch-41b4b2158/"><FontAwesomeIcon icon={faLinkedin} size="2x" /></IconLink>    
                     </ButtonRow>
                 </motion.div>
             </ContentContainer>
@@ -281,7 +281,7 @@ const Hero = styled.div`
 const ButtonRow = styled.div`
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 1rem;
     margin-top: 1rem;
 `
 
