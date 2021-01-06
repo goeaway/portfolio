@@ -207,8 +207,8 @@ const Container = styled(motion.div)`
     }
 
     @media(min-width:${p => p.theme.breakpoints.xl}px) {
-        padding-left: 25rem;
-        padding-right: 25rem;
+        padding-left: 30rem;
+        padding-right: 30rem;
     }
 `
 
@@ -330,6 +330,25 @@ const ArticleBody = styled.div`
         padding: .2rem;
         border-radius: 4px;
         background: ${p => p.theme.background.three};
+    }
+
+    img {
+        margin: 1.5rem auto;
+        border-radius: 6px;
+        max-width: 100%;
+        display: block;
+    }
+
+    @media(min-width:${p => p.theme.breakpoints.sm}px) {
+        img {
+            max-width: 90%;
+        }
+    }
+
+    @media(min-width:${p => p.theme.breakpoints.md}px) {
+        img {
+            max-width: 80%;
+        }
     }
 `
 

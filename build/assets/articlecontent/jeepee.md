@@ -13,9 +13,9 @@ If you'd like to learn how I did this, or want to copy it to get your own versio
 
 So here it is, in all it's glory. I used a Lego set as the base because it meant I would have a well built model to work with, instead of the shoddy rubbish I would have been able to build myself. I've added a couple of modifications to the [base set](https://www.amazon.co.uk/LEGO-42065-Tracked-Racer-Building/dp/B01J41LWFW/ref=asc_df_B01J41LWFW/), mainly to provide a load more space for all the components I need. I also upgraded the motors to be L motors, because the ones that come with the set don't have enough POWER for all the added weight (or at least that's the excuse we're going with).
 
-![jeepee tank](https://joetm.space/assets/articleimages/jeepee_2.jpg)
+![jeepee tank](/assets/articleimages/jeepee_2.jpg)
 
-![internals](https://joetm.space/assets/articleimages/jeepee_3.jpg)
+![internals](/assets/articleimages/jeepee_3.jpg)
 
 Here are all the important bits. The Pi itself receives commands from the controller, and using the web api I built converts those commands into signals sent to the Lego motors. The motors themselves need 9v of power, but the Pi is only capable of providing 5v. To deal with this, we have a 9v battery on board as well to provide the required power. 
 
@@ -25,7 +25,7 @@ I then connected up the live and ground wires of each lego motor to that chip. E
 
 Here's a detailed schematic of the electronic components, based off the system by Patrick in the above article. I also added an LED that would turn on when the 9v battery pack was on, so it was easy to see if I'd left it on by accident!
 
-![PCB schematics](https://joetm.space/assets/articleimages/jeepee_9.jpg)
+![PCB schematics](/assets/articleimages/jeepee_9.jpg)
 
 If you happen to be an electrical engineer you may be squirming just looking at this, but it does get the job done! The jumper wires labelled xP (purple), xG (green) and xB (blue) are the wires that connect to the GPIO pins on the Pi, and a set of these make up what I'm calling a "channel", the controller then sends signals to update a channel, which will result in a motor turning on or off, or changing direction. The purple wire is the enable pin for the channel, the blue wire is the "one" pin and the green is the "two" pin. 
 
@@ -33,9 +33,9 @@ This configuration supports two channels, one for each side of the chip, but if 
 
 The below image is of the schematic's real counter part, in all it's jumper wire glory. Originally I had this circuit working on a breadboard, but I wanted to move it over to a PCB to be more permenant and to have a smaller form factor. It took a few tries and a slightly sore back from hunching over it for hours but I'm very happy with the result. I think of the whole project I learnt the most at this point.
 
-![Real PCB](https://joetm.space/assets/articleimages/jeepee_4.jpg)
+![Real PCB](/assets/articleimages/jeepee_4.jpg)
 
-![Pi Connections](https://joetm.space/assets/articleimages/jeepee_5.jpg)
+![Pi Connections](/assets/articleimages/jeepee_5.jpg)
 
 The above image shows the connections from the Pi to the PCB, You can kind of choose where the purple, blue and green pins of each channel connect to, as long as the pins on the board support GPIO operations. Later on you'll see where to set the channels in the web api.
 
@@ -43,11 +43,11 @@ The above image shows the connections from the Pi to the PCB, You can kind of ch
 
 The below shows a diagram of the system architecture.
 
-![software arch](https://joetm.space/assets/articleimages/jeepee_6.jpg)
+![software arch](/assets/articleimages/jeepee_6.jpg)
 
 I made the decision early on to use Docker because I wanted to be able to easily install this software on multiple RC vehicles. This choice turned out to really help because I ended up needing to completely wipe the Pi a few times when things went wrong! 
 
-![Controller UI](https://joetm.space/assets/articleimages/jeepee_7.jpg)
+![Controller UI](/assets/articleimages/jeepee_7.jpg)
 
 The controller site itself is built with React and accepts a few different methods of control. Initially I'd planned to have a website running on my computer, but to be more inline with my philosophy of making it easy to reinstall, I moved the site onto the Pi as well, alongside the Web API receiver (flashbacks of IR transmitter next to the receiver) (thousand yard stare) (credence clearwater revival)...
 
@@ -134,7 +134,7 @@ services:
 ```
 An important bit to note is the privileged key on the jeepee definition. This must be true for us to interact with the pins, because docker doesn't allow that kind of operation without it.
 
-Finally, to be able to get a camera feed on the Pi, I used uv4l with some extras to get it working. I initially tried to use this in another container, but couldn't get it working because it can't find the camera's device in the container, even with the privileged flag set. Something to look at in future. Having said that, it's really simple to get working. [check this out to see how](https://joetm.space/article/uv4l)
+Finally, to be able to get a camera feed on the Pi, I used uv4l with some extras to get it working. I initially tried to use this in another container, but couldn't get it working because it can't find the camera's device in the container, even with the privileged flag set. Something to look at in future. Having said that, it's really simple to get working. [check this out to see how](/article/uv4l)
 
 ## Demo
 
@@ -144,11 +144,11 @@ Finally, to be able to get a camera feed on the Pi, I used uv4l with some extras
 
 This is a quick guide on how to install the software part and assumes you've got your hardware set up and ready to go.
 
-1. You may have already set up your raspberry pi, but if you haven't yet, [check out this tutorial](https://joetm.space/article/rpi-setup) I made on how to get the basics set up.
-2. Set up docker and docker-compose, you can use this [guide I made](https://joetm.space/article/docker)
+1. You may have already set up your raspberry pi, but if you haven't yet, [check out this tutorial](/article/rpi-setup) I made on how to get the basics set up.
+2. Set up docker and docker-compose, you can use this [guide I made](/article/docker)
 3. Clone the jeepee.io repo and copy all the files from [here](https://github.com/goeaway/jeepee.io/tree/master/docker/live/receiver/compose) into a new directory on your Raspberry Pi.
 4. Update the hardware.json file to point to the correct pins for each channel, You can also change the name for each of them here and it will update on the controller website.
-5. Get [uv4l installed](https://joetm.space/article/uv4l) so you can stream from the Pi
+5. Get [uv4l installed](/article/uv4l) so you can stream from the Pi
 7. start the uv4l service with `sudo service uv4l_raspicam start`
 8. run `docker-compose up` in the directory with the docker-compose yaml
 9. On any device connected to the same network as the Pi, go to `http://{pi ip address}/controller` where you should be able to see the stream from the camera and be able to control the vehicle!
