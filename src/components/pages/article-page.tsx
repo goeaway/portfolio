@@ -96,7 +96,13 @@ const ArticlePage = () => {
         >
             <ArticleContainer>
                 {!article && (
-                    <span>loading</span>
+                    <FlexCentre>
+                    <FontAwesomeIcon 
+                        className="fa-spin" 
+                        color={theme.background.three}
+                        icon={faSpinner} 
+                        size="9x" />
+                    </FlexCentre>
                 )}
                 {article && (
                     <>
