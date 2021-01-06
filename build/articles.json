@@ -57,6 +57,8 @@
             "featured": true,
             "featuredImage": "/assets/articleimages/rick.gif",
             "content": "/assets/articlecontent/rickroller.md",
+            "githubLink": "https://github.com/goeaway/rickrollblock",
+            "liveLink": "https://addons.mozilla.org/en-GB/firefox/addon/rick-roll-blocker/",
             "techs": [
                 { 
                     "name": "React",

@@ -122,7 +122,7 @@ const ArticlePage = () => {
                                             backgroundColor="white"
                                             href={article.liveLink}
                                         >
-                                            <HiddenXsSm>View&nbsp;</HiddenXsSm>Live<HiddenXsSm>&nbsp;Site</HiddenXsSm>
+                                            <HiddenXsSm>View&nbsp;</HiddenXsSm>Live<HiddenXsSm></HiddenXsSm>
                                         </RectangleLink>
                                     )}
                                     {article.githubLink && (
