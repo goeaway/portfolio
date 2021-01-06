@@ -1,7 +1,5 @@
 If you grew up in the early 2010s like me you'll've spent endless nights after school watching videos on YouTube. Ray William Johnson, Guitar Hero 100%, MW2 Quick Scope No Scope 360 Montages, were a staple in any teenagers online trepidations. Unfortunately, the warm, fuzzy nostalgia of 2010 is haunted by the distant tunes of 80s synths. You can hear it now, the way it starts. The innocent, hopeful pop track that signals the ultimate betrayal in the online community...
 
-![Flashbacks](https://joetm.space/assets/articleimages/rick_1.jpg)
-
 # The Rick Roll
 
 If you don't know what I'm on about, Rick Rolling is a simple internet prank that involves posting a link online and pretending it is for something innocuous, when in reality, it's a link to the popular 80s song "Never Gunna Give You Up" by Rick Astley. The first time you hear about it you probably think it's extremely stupid, which is exactly what it is, and falling for it can often leaving you feeling very hurt and betrayed. [Someone else explains it really well here](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
