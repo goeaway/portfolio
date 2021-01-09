@@ -30,12 +30,37 @@
             "githubLink": "https://github.com/goeaway/jeepee.io"
         },
         {
+            "id": "pathfinderdebugger",
+            "title": "Pathfinder Debugger",
+            "desc": "An online tool to visualise and debug pre-made or custom pathfinding algorithms.",
+            "type": 0,
+            "techs": [
+                { 
+                    "name": "React",
+                    "icon": "react"
+                },
+                { 
+                    "name": "HTML",
+                    "icon": "html"
+                },
+                {
+                    "name": "CSS",
+                    "icon": "css"
+                }
+            ],
+            "featured": true,
+            "content": "/assets/articlecontent/pathfinderdebugger.md",
+            "githubLink": "https://github.com/goeaway/pathfinder-debugger",
+            "liveLink": "https://pathfinderdebugger.com",
+            "featuredImage": "/assets/articleimages/pathfinderdebugger_1.gif",
+            "enabled": true
+        },
+        {
             "id": "bump",
             "title": "Bump",
             "desc": "A UWP application for quickly sharing things with yourself accross multiple devices.",
             "type": 0,
             "techs": [
-                
                 { 
                     "name": "C#",
                     "icon": "csharp"
@@ -65,12 +90,12 @@
                     "icon": "react"
                 },
                 { 
-                    "name": "HTML",
-                    "icon": "html"
+                    "name": "Firefox",
+                    "icon": "firefox"
                 },
                 { 
-                    "name": "CSS",
-                    "icon": "css"
+                    "name": "Extension",
+                    "icon": "extension"
                 }
             ]
         },
@@ -95,11 +120,10 @@
                     "icon": "aws"
                 },
                 { 
-                    "name": "html",
-                    "icon": "html"
+                    "name": "React",
+                    "icon": "react"
                 }
-            ],
-            "featured": true
+            ]
         },
         {
             "enabled": true,

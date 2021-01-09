@@ -49,21 +49,27 @@ const FeaturedArticle : React.FC<FeaturedArticleProps> = ({article}) => {
 export default FeaturedArticle;
 
 const Container = styled.div`
-    border-radius: 4px;
+    border-radius: 6px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
     background: #232834;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
     
     @media(min-width:${p => p.theme.breakpoints.sm}px) {
-        display: grid;
-        grid-template-columns: 25% auto;
+        flex-direction: row;
+
+        &:nth-child(even) {
+            flex-direction: row-reverse;
+
+        }
     }
 `
     
 const ContentMain = styled.div`
     padding: 2rem;
+    width: 100%;
 `
 
 const TitleLine = styled.div`
@@ -72,7 +78,7 @@ const TitleLine = styled.div`
     align-items: flex-start;
     gap: 10px;
 
-    @media(min-width:${p => p.theme.breakpoints.md}px) {
+    @media(min-width:${p => p.theme.breakpoints.lg}px) {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
@@ -106,12 +112,15 @@ const FeaturedImage = styled.div`
     padding: 1rem;
     padding-top: 2rem;
     min-height: 100px;
+    min-width: 250px;
 
-    border-top-right-radius: 4px;
-    border-top-left-radius: 4px;
+
+    // border-top-right-radius: 4px;
+    // border-top-left-radius: 4px;
 
     @media(min-width:${p => p.theme.breakpoints.sm}px) {
-        border-top-right-radius: 0;
-        border-bottom-left-radius: 4px;
+        // border-top-right-radius: 0;
+        // border-bottom-left-radius: 4px;
+
     }
 `
